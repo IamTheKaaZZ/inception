@@ -42,3 +42,4 @@ wil’s website.
 
 ## Cheats
 [Article with basically the project](https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a)
+[Fix for Alpine MariaDB](https://github.com/gliderlabs/docker-alpine/issues/437)

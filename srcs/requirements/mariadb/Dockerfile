@@ -12,14 +12,21 @@
 
 FROM alpine:3.15
 RUN apk update \
-    && apk add --no-cache mariadb
+    && apk add --no-cache mariadb \
+    mariadb-client
 
-# RUN rc-service mariadb status #check service status
+RUN apk add util-linux openrc
 
-# RUN /etc/init.d/mariadb setup #setup db
+VOLUME /sys/fs/cgroup
+
+RUN rc-update add mariadb default \
+  && mkdir /run/openrc \
+  && touch /run/openrc/softlevel    # suppress OpenRc warning
 
 COPY conf/entrypoint.sh /usr/local/bin/
-RUN chmod -x /usr/local/bin/entrypoint.sh
+
+RUN chmod -x /usr/local/bin/entrypoint.sh \
+  && ln -s /usr/local/bin/entrypoint.sh / # backwards compat
 
 ENTRYPOINT [ "entrypoint.sh" ]
 

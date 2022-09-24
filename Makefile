@@ -49,8 +49,8 @@ QUIT	= \033[0m
 NAME	=	inception
 SRCS	=	srcs/docker-compose.yml
 ENV		=	srcs/.env
-DIR_MDB	=	/home/$(USER)/data/mysql
-DIR_MDB	=	/home/$(USER)/data/html
+DIR_MDB	=	$(HOME)/data/mysql
+DIR_MDB	=	$(HOME)/data/html
 
 # RULES
 

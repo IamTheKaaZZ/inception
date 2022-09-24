@@ -1,5 +1,16 @@
 #!/bin/bash
 
+
+# Check status is stopped
+rc-service mariadb status
+
+# Setup the MariaDB service
+/etc/init.d/mariadb setup
+
+# Start the service
+rc-service mariadb start
+
+
 set -o errexit # abort on nonzero exitstatus
 set -o nounset # abort on unbound variable
 
@@ -28,10 +39,8 @@ is_mysql_command_available() {
   which mysql > /dev/null 2>&1
 }
 
-#}}}
-#{{{ Variables
+# Variables
 db_root_password="${MYSQL_ROOT_PASSWORD}"
-#}}}
 
 # Script proper
 
