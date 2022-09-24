@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql:
+    build: requirements/mariadb
+    image: mariadb:42
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    restart: always
+
+  wordpress:
+    build: requirements/wordpress
+    image: wordpress:42
+    volumes:
+      - /data/html:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: MYSQL_DATABASE
+      WORDPRESS_DB_USER: MYSQL_USER
+      WORDPRESS_DB_PASSWORD: MYSQL_PASSWORD
+      WORDPRESS_TABLE_PREFIX: wp_
+    links:
+      - mysql
+    restart: always

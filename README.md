@@ -39,3 +39,6 @@ local IP address.
 This domain name must be login.42.fr. Again, you have to use your own login.
 For example, if your login is wil, wil.42.fr will redirect to the IP address pointing to
 wil’s website.
+
+## Cheats
+[Article with basically the project](https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a)
